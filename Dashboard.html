@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osa Portfolio</title>
+    
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">	
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+   <header>
+    <div class="logo">Osa Khoiruzzad</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Education</a>
+        <a href="#">Projects</a>
+        <a href="#">Contacts</a>
+        <div class="switch-container"> <!-- Move switch container here -->
+            <label class="switch">
+                <input type="checkbox" id="backgroundSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </nav>
+</header>
+<main>
+	<div class="buttonGetStarted" href="#">Get Started</div>
+</main>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const backgroundSwitch = document.getElementById("backgroundSwitch");
+        const body = document.body;
+
+        // Set initial background and body class based on the default state
+        if (!backgroundSwitch.checked) { // Default to Frame 28
+            body.style.backgroundImage = "url('Frame 28.png')";
+            body.classList.add('frame28'); // Add initial class
+        } else { // If checked, load Frame 29
+            body.style.backgroundImage = "url('Frame 29.png')";
+            body.classList.add('frame29'); // Add class for Frame 29
+        }
+
+        // Set event listener for background switch
+        backgroundSwitch.addEventListener("change", function() {
+            // Add fade-out class to body
+            body.classList.add('fade-out');
+
+            setTimeout(() => {
+                // Change the background image and class based on the slider state
+                if (this.checked) {
+                    body.style.backgroundImage = "url('Frame 29.png')";
+                    body.classList.remove('frame28');
+                    body.classList.add('frame29'); // Add class for Frame 29
+                } else {
+                    body.style.backgroundImage = "url('Frame 28.png')";
+                    body.classList.remove('frame29');
+                    body.classList.add('frame28'); // Add class for Frame 28
+                }
+
+                // Remove fade-out class and add fade-in class
+                body.classList.remove('fade-out');
+                body.classList.add('fade-in');
+
+            }, 400); // Match this with the transition duration
+        });
+    });
+</script>
+
+
+
+</body>
+
+
+</html>

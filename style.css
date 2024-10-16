@@ -1,0 +1,191 @@
+/* Styling umum */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('Frame 28.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Initial opacity for fade effect */
+body.fade-out {
+    opacity: 0; /* Fade-out effect */
+}
+
+body.fade-in {
+    opacity: 1; /* Fade-in effect */
+}
+
+/* Styling switch button */
+.switch-container {
+    margin-left: 20px; /* Add space between last link and switch */
+    display: flex; /* Use flex to align items properly */
+    align-items: center; /* Center the switch vertically */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Smaller width */
+    height: 24px; /* Smaller height */
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px; /* Adjusted border radius */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; /* Smaller height for the knob */
+    width: 20px; /* Smaller width for the knob */
+    left: 2px; /* Adjusted position for the knob */
+    bottom: 2px; /* Adjusted position for the knob */
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%; /* Keep the knob rounded */
+}
+
+input:checked + .slider {
+    background-color: #B50102; /* Color when slider is active */
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px); /* Adjusted translation for smaller slider */
+}
+
+
+/* Header styling */
+header {
+    font-family: "Bebas Neue", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%; /* Responsive padding */
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+main {
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Full height of the viewport */
+}
+
+section {
+    display: flex; /* Use flexbox to center the content */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text inside the section */
+}
+
+/* Styling for the list and digits */
+
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px; /* Responsive margin */
+    font-size: 2vw; /* Responsive font size */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Logo styling */
+.logo {
+    font-family: "Fraunces", sans-serif;
+    font-size: 24px;
+    color: #fff;
+}
+
+
+.buttonGetStarted {
+    display: inline-block;
+    padding: 10px 2%; /* Responsive padding */
+    font-size: 2vw; /* Responsive font size */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Media Queries for smaller devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack header items vertically */
+        padding: 10px; /* Less padding on small screens */
+    }
+    
+    nav a {
+        margin-left: 5px; /* Less margin */
+        font-size: 5vw; /* Slightly larger font size on small screens */
+    }
+
+    .buttonGetStarted {
+        font-size: 5vw; /* Larger button text on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        font-size: 6vw; /* Even larger font size on very small screens */
+    }
+
+    .buttonGetStarted {
+        padding: 10px 10%; /* More padding for buttons on small screens */
+        font-size: 6vw; /* Larger button text */
+    }
+}
+/* Initial styles when background is Frame 28 */
+body.frame28 .buttonGetStarted {
+    background-color: white; /* Button background color */
+    color: black; /* Button text color */
+}
+
+/* Hover styles when background is Frame 28 */
+body.frame28 .buttonGetStarted:hover {
+    background-color: black; /* Button background on hover */
+    color: white; /* Button text color on hover */
+}
+
+/* Styles when background is Frame 29 */
+body.frame29 .buttonGetStarted {
+    background-color: #B50102; /* Button background color */
+    color: white; /* Button text color */
+}
+
+/* Hover styles when background is Frame 29 */
+body.frame29 .buttonGetStarted:hover {
+    background-color: white; /* Button background on hover */
+    color: black; /* Button text color on hover */
+}
