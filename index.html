@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Osa Portfolio</title>
     
-    <!--Font-->
+    <!-- Font linking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">	
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">    
 
+    <!-- Link to external CSS -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-   <header>
+    <header>
     <div class="logo">Osa Khoiruzzad</div>
     <nav>
+        <div class="hamburger" id="hamburger">&#9776;</div> <!-- Hamburger icon -->
         <a href="#">Home</a>
         <a href="#">Education</a>
         <a href="#">Projects</a>
         <a href="#">Contacts</a>
-        <div class="switch-container"> <!-- Move switch container here -->
+        <div class="switch-container">
             <label class="switch">
                 <input type="checkbox" id="backgroundSwitch">
                 <span class="slider"></span>
@@ -30,53 +31,97 @@
         </div>
     </nav>
 </header>
-<main>
-	<div class="buttonGetStarted" href="#">Get Started</div>
-</main>
+
+
+    <main>
+        <div class="intro-text">
+            <h3>Hi! It's Osa Khoiruzzad.</h3>
+            <h2>I'm an <span class="typing-text"></span></h3>
+        </div>
+        <div class="buttonGetStarted">Get Started</div>
+    </main>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const backgroundSwitch = document.getElementById("backgroundSwitch");
-        const body = document.body;
+        document.addEventListener("DOMContentLoaded", function() {
+            const backgroundSwitch = document.getElementById("backgroundSwitch"); // Get the switch element
+            const body = document.body; // Get the body element
+            const roles = ["UI/UX Designer.", "Front-End Developer.", "Electrical Engineer.", "Android Developer."]; // Role list
+            const typingTextElement = document.querySelector('.typing-text'); // Text element for typing animation
+            const hamburger = document.getElementById("hamburger");
+            const nav = document.querySelector("nav");            
+            
+            hamburger.addEventListener("click", function() {
+            nav.classList.toggle("active"); // Toggle the active class on nav
+            });let roleIndex = 1; // Index for roles
+            
+            let charIndex = 1; // Index for characters
+            let currentText = ''; // Current text being typed
+            let isDeleting = false; // Deleting state flag
 
-        // Set initial background and body class based on the default state
-        if (!backgroundSwitch.checked) { // Default to Frame 28
-            body.style.backgroundImage = "url('Frame 28.png')";
-            body.classList.add('frame28'); // Add initial class
-        } else { // If checked, load Frame 29
-            body.style.backgroundImage = "url('Frame 29.png')";
-            body.classList.add('frame29'); // Add class for Frame 29
-        }
+            function typeEffect() {
+                const fullText = roles[roleIndex]; // Current role text
 
-        // Set event listener for background switch
-        backgroundSwitch.addEventListener("change", function() {
-            // Add fade-out class to body
-            body.classList.add('fade-out');
-
-            setTimeout(() => {
-                // Change the background image and class based on the slider state
-                if (this.checked) {
-                    body.style.backgroundImage = "url('Frame 29.png')";
-                    body.classList.remove('frame28');
-                    body.classList.add('frame29'); // Add class for Frame 29
+                if (!isDeleting) {
+                    // Typing effect
+                    if (charIndex < fullText.length) {
+                        currentText = fullText.substring(0, charIndex + 1); // Extract next char
+                        charIndex++; // Increment char index
+                        typingTextElement.textContent = currentText + " "; // Show typed text
+                        setTimeout(typeEffect, 200); // Speed for typing
+                    } else {
+                        // Pause before deleting
+                        isDeleting = true; // Set deleting flag
+                        setTimeout(typeEffect, 2000); // Pause duration
+                    }
                 } else {
-                    body.style.backgroundImage = "url('Frame 28.png')";
-                    body.classList.remove('frame29');
-                    body.classList.add('frame28'); // Add class for Frame 28
+                    // Deleting effect
+                    if (charIndex > 0) {
+                        currentText = fullText.substring(0, charIndex); // Remove char
+                        charIndex--; // Decrement char index
+                        typingTextElement.textContent = currentText + " "; // Show deleted text
+                        setTimeout(typeEffect, 100); // Speed for deleting
+                    } else {
+                        // Move to next role
+                        isDeleting = false; // Reset deleting flag
+                        roleIndex = (roleIndex + 1) % roles.length; // Loop roles
+                        charIndex = 0; // Reset char index
+                        typingTextElement.textContent = ""; // Clear text
+                        setTimeout(typeEffect, 500); // Delay for next typing
+                    }
                 }
+            }
 
-                // Remove fade-out class and add fade-in class
-                body.classList.remove('fade-out');
-                body.classList.add('fade-in');
+            typeEffect(); // Start typing effect
 
-            }, 400); // Match this with the transition duration
+            // Set initial background based on switch state
+            if (!backgroundSwitch.checked) { 
+                body.style.backgroundImage = "url('Frame 28.png')"; // Set background image
+                body.classList.add('frame28'); // Add specific class
+            } else {
+                body.style.backgroundImage = "url('Frame 29.png')"; // Set alternative background
+                body.classList.add('frame29'); // Add specific class
+            }
+
+            // Switch background on toggle
+            backgroundSwitch.addEventListener("change", function() {
+                body.classList.add('fade-out'); // Add fade-out class
+
+                setTimeout(() => {
+                    if (this.checked) {
+                        body.style.backgroundImage = "url('Frame 29.png')"; // Change to Frame 29
+                        body.classList.remove('frame28'); // Remove previous class
+                        body.classList.add('frame29'); // Add new class
+                    } else {
+                        body.style.backgroundImage = "url('Frame 28.png')"; // Change to Frame 28
+                        body.classList.remove('frame29'); // Remove previous class
+                        body.classList.add('frame28'); // Add new class
+                    }
+
+                    body.classList.remove('fade-out'); // Remove fade-out class
+                    body.classList.add('fade-in'); // Add fade-in class
+                }, 400); // Transition timing
+            });
         });
-    });
-</script>
-
-
-
+    </script>
 </body>
-
-
 </html>

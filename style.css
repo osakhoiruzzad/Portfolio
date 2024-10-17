@@ -1,17 +1,17 @@
-/* Styling umum */
+/* General styling for body */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('Frame 28.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+    margin: 0; /* Reset margin */
+    font-family: Arial, sans-serif; /* Font family */
+    background-image: url('Frame 28.png'); /* Background image */
+    background-size: cover; /* Cover background */
+    background-position: center; /* Center background */
+    background-repeat: no-repeat; /* No repeat */
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical alignment */
+    transition: background-image 1s ease-in-out, opacity 1s ease-in-out; /* Smooth transitions */
 }
 
 /* Initial opacity for fade effect */
@@ -23,169 +23,240 @@ body.fade-in {
     opacity: 1; /* Fade-in effect */
 }
 
+/* Intro text styling */
+.intro-text {
+    position: absolute; /* Absolute positioning */
+    left: 150px; /* Set left padding */
+    top: 200px; /* Set top padding */
+    font-family: "Fraunces", sans-serif;
+
+}
+
+.intro-text h3 {
+    font-size: 36px; /* Fixed font size for the main title */
+    color: white; /* Text color */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+/* Subtitle styling */
+.intro-text h2 {
+    font-family: "Fraunces", sans-serif;
+    font-size: 20px; /* Smaller font size for typing text */
+    color: white;
+
+}
+
+/* Adjust the typing-text size for subtitle */
+.typing-text {
+    border-right: 2px solid white; /* Cursor effect */
+    font-family: "Fraunces", sans-serif;
+    font-size: 20px; /* Smaller font size for typing text */
+    color: black; /* Text color */
+    overflow: hidden; /* Hide overflow */
+    margin-left: 5px; /* Margin to previous text */
+}
+
+
+
 /* Styling switch button */
 .switch-container {
-    margin-left: 20px; /* Add space between last link and switch */
-    display: flex; /* Use flex to align items properly */
-    align-items: center; /* Center the switch vertically */
+    margin-left: 2%; /* Space between items */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center vertically */
 }
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 40px; /* Smaller width */
-    height: 24px; /* Smaller height */
+    position: relative; /* Relative positioning */
+    display: inline-block; /* Inline block */
+    width: 40px; /* Fixed width */
+    height: 24px; /* Fixed height */
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 24px; /* Adjusted border radius */
+    position: absolute; /* Absolute positioning */
+    cursor: pointer; /* Pointer on hover */
+    top: 0; /* Align top */
+    left: 0; /* Align left */
+    right: 0; /* Align right */
+    bottom: 0; /* Align bottom */
+    background-color: #ccc; /* Background color */
+    transition: .4s; /* Transition effect */
+    border-radius: 24px; /* Rounded corners */
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 20px; /* Smaller height for the knob */
-    width: 20px; /* Smaller width for the knob */
-    left: 2px; /* Adjusted position for the knob */
-    bottom: 2px; /* Adjusted position for the knob */
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%; /* Keep the knob rounded */
+    position: absolute; /* Absolute positioning */
+    content: ""; /* Required content */
+    height: 20px; /* Fixed knob height */
+    width: 20px; /* Fixed knob width */
+    left: 2px; /* Adjusted knob position */
+    bottom: 2px; /* Adjusted knob position */
+    background-color: white; /* Knob color */
+    transition: .4s; /* Transition effect */
+    border-radius: 50%; /* Keep rounded */
 }
 
 input:checked + .slider {
-    background-color: #B50102; /* Color when slider is active */
+    background-color: #B50102; /* Active slider color */
 }
 
 input:checked + .slider:before {
-    transform: translateX(16px); /* Adjusted translation for smaller slider */
+    transform: translateX(16px); /* Knob movement */
 }
-
 
 /* Header styling */
 header {
-    font-family: "Bebas Neue", sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-family: "Fraunces", sans-serif;
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center vertically */
     padding: 10px 5%; /* Responsive padding */
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(1px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.3); /* Background color */
+    backdrop-filter: blur(1px); /* Blur effect */
+    position: fixed; /* Fixed position */
+    top: 0; /* Align top */
+    left: 0; /* Align left */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Box model */
+    z-index: 1000; /* Bring to front */
 }
 
+/* Main layout */
 main {
-    display: flex; /* Use flexbox to center the content */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height */
 }
 
+/* Section styling */
 section {
-    display: flex; /* Use flexbox to center the content */
-    flex-direction: column; /* Arrange items in a column */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    text-align: center; /* Center text inside the section */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Vertical alignment */
+    align-items: center; /* Center items */
+    justify-content: center; /* Center items */
+    text-align: center; /* Center text */
 }
 
-/* Styling for the list and digits */
-
-
+/* Navigation styling */
 nav {
-    display: flex;
+    display: flex; /* Display flex to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and links */
+    position: relative; /* Position relative for absolute positioning of links */
 }
 
+/* Hide links initially in mobile view */
 nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 10px; /* Responsive margin */
-    font-size: 2vw; /* Responsive font size */
+    text-decoration: none; /* Remove underline */
+    color: black; /* Link color */
+    padding: 10px 15px; /* Link padding */
+    transition: all 0.3s ease; /* Transition for smooth effects */
+    transform: scale(0); /* Start with scale of 0 for animation */
+    opacity: 0; /* Start with opacity of 0 */
+    position: absolute; /* Position absolute for gathering effect */
+    top: 100%; /* Position below the nav */
+    left: 0; /* Align to the left */
 }
+
+/* Hamburger icon styling */
+.hamburger {
+    display: none; /* Initially hide hamburger */
+    font-size: 24px; /* Font size for the hamburger */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover */
 }
 
 /* Logo styling */
 .logo {
-    font-family: "Fraunces", sans-serif;
-    font-size: 24px;
-    color: #fff;
+    font-family: "Fraunces", sans-serif; /* Logo font */
+    font-size: 24px; /* Fixed logo font size */
+    color: #fff; /* Logo color */
 }
 
-
+/* Button styling */
 .buttonGetStarted {
-    display: inline-block;
-    padding: 10px 2%; /* Responsive padding */
-    font-size: 2vw; /* Responsive font size */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    display: inline-block; /* Ensure it behaves like a button */
+    margin-top: 10px; /* Space above the button */
+    padding: 10px 20px; /* Button padding */
+    background-color: white; /* Button background color */
+    color: black; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+}
+
+.buttonGetStarted:hover {
+    background-color: black; /* Background on hover */
+    color: white; /* Text color on hover */
 }
 
 /* Media Queries for smaller devices */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Stack header items vertically */
-        padding: 10px; /* Less padding on small screens */
+    .intro-text h3 {
+        font-size: 28px; /* Adjusted font size for mobile */
     }
-    
-    nav a {
-        margin-left: 5px; /* Less margin */
-        font-size: 5vw; /* Slightly larger font size on small screens */
+
+    .desc11, .typing-text {
+        font-size: 18px; /* Smaller size for description */
     }
 
     .buttonGetStarted {
-        font-size: 5vw; /* Larger button text on small screens */
+        font-size: 16px; /* Smaller button text */
+    }
+    nav a {
+        display: block; /* Show links as block on small screens */
+        margin: 5px 0; /* Add vertical margin for spacing */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on small screens */
+    }
+
+    nav.active a {
+        transform: scale(1); /* Scale to original size */
+        opacity: 1; /* Fade in */
     }
 }
 
 @media (max-width: 480px) {
-    nav a {
-        font-size: 6vw; /* Even larger font size on very small screens */
+     .intro-text h3 {
+        font-size: 22px; /* Even smaller font size for mobile */
+    }
+
+    .desc11, .typing-text {
+        font-size: 16px; /* Smaller font size for typing text */
     }
 
     .buttonGetStarted {
-        padding: 10px 10%; /* More padding for buttons on small screens */
-        font-size: 6vw; /* Larger button text */
-    }
+        font-size: 14px; /* Even smaller button text */
+    }   
 }
-/* Initial styles when background is Frame 28 */
+
+/* Initial styles for Frame 28 background */
 body.frame28 .buttonGetStarted {
-    background-color: white; /* Button background color */
+    background-color: white; /* Button background */
     color: black; /* Button text color */
 }
 
-/* Hover styles when background is Frame 28 */
+/* Hover styles for Frame 28 background */
 body.frame28 .buttonGetStarted:hover {
     background-color: black; /* Button background on hover */
     color: white; /* Button text color on hover */
 }
 
-/* Styles when background is Frame 29 */
+/* Styles for Frame 29 background */
 body.frame29 .buttonGetStarted {
-    background-color: #B50102; /* Button background color */
+    background-color: #B50102; /* Button background */
     color: white; /* Button text color */
 }
 
-/* Hover styles when background is Frame 29 */
+/* Hover styles for Frame 29 background */
 body.frame29 .buttonGetStarted:hover {
     background-color: white; /* Button background on hover */
-    color: black; /* Button text color on hover */
+    color: black; /* Button text color */
 }
